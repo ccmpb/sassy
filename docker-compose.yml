@@ -1,0 +1,26 @@
+# resource: https://blog.toast38coza.me/up-and-running-with-kong-and-docker/
+
+version: "3"
+
+services:
+  web:
+    restart: always
+    build: .
+    volumes:
+      - static:/app/static
+    expose:
+      - 8000
+
+  nginx:                                                                        
+    image: nginx:1.19.10-alpine                                                  
+    ports:                                                                      
+      - 80:80                                                                   
+    volumes:                                                                    
+      - ./etc/nginx/conf.d:/etc/nginx/conf.d                                    
+      - static:/app/static                                               
+    depends_on:                                                                 
+      - web                
+
+volumes:
+  static:
+
