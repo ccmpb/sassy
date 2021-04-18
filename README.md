@@ -1,7 +1,5 @@
 # Sassy
-
-Micro SASS boilerplate
----
+Minimal SASS boilerplate
 
 ## Stack
 * bulmacss
